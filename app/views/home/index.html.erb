@@ -1,2 +1,73 @@
 <h1>Home#index</h1>
 <p>Find me in app/views/home/index.html.erb</p>
+
+<head>
+    
+
+    <div class="row">
+        
+    <!–– We will end up having to base the x-axis off of our imported data, and then giving the y point for each x ––>
+    <div  align="center", class="col-xs-6">
+        <h2 align="center">HeartRate</h2>
+
+        <% @HR_series_a =  [[2, 175], [4, 175], [6, 175], [8, 175], [10, 175], [12, 175], [14, 175], [16, 175]] %>
+        
+        <% @HR_series_b =  [[2, 65], [4, 65], [6, 65], [8, 65], [10, 65], [12, 65], [14, 65], [16, 65]] %>
+        
+        <%= line_chart [{name: "Average High HR", data: @HR_series_a}, {name: "Average Resting HR", data: @HR_series_b}],
+            label: "Value", xtitle: "Time", ytitle: "Heart Rate", curve: false, points: false, 
+            min: 0, width: "800px", height: "500px" %>
+    </div>
+    
+    <div align="center", class="col-xs-6">
+        <h2 align="center">Systolic Arterial BP</h2>
+
+        <% @DBP_series_a =  [[2, 110], [4, 110], [6, 110], [8, 110], [10, 110], [12, 110], [14, 110], [16, 110]] %>
+        
+        <% @DBP_series_b =  [[2, 130], [4, 130], [6, 130], [8, 130], [10, 130], [12, 130], [14, 130], [16, 130]] %>
+        
+        <% @DBP_series_c =  [[2, 180], [4, 180], [6, 180], [8, 180], [10, 180], [12, 180], [14, 180], [16, 180]] %>
+        
+        <%= line_chart [{name: "Normal", data: @DBP_series_a}, {name: "Hypertension", data: @DBP_series_b}, {name: "Hypertensive Crisis", data: @DBP_series_c}],
+            label: "Value", xtitle: "Time", ytitle: "Heart Rate", curve: false, points: false, 
+            min: 0, width: "800px", height: "500px" %>
+    </div>
+    
+    <div align="center", class="col-xs-6">
+        <h2 align="center">Diastolic Arterial BP</h2>
+
+        <% @DBP_series_a =  [[2, 70], [4, 70], [6, 70], [8, 70], [10, 70], [12, 70], [14, 70], [16, 70]] %>
+        
+        <% @DBP_series_b =  [[2, 80], [4, 80], [6, 80], [8, 80], [10, 80], [12, 80], [14, 80], [16, 80]] %>
+        
+        <% @DBP_series_c =  [[2, 120], [4, 120], [6, 120], [8, 120], [10, 120], [12, 120], [14, 120], [16, 120]] %>
+        
+        <%= line_chart [{name: "Normal", data: @DBP_series_a}, {name: "Hypertension", data: @DBP_series_b}, {name: "Hypertensive Crisis", data: @DBP_series_c}],
+            label: "Value", xtitle: "Time", ytitle: "Heart Rate", curve: false, points: false, 
+            min: 0, width: "800px", height: "500px" %>
+    </div>
+    
+    <div align="center", class="col-xs-6">
+        <h2 align="center">Tempurature</h2>
+        
+        <% @Temp_series_a =  [[2, 100], [4, 100], [6, 100], [8, 100], [10, 100], [12, 100], [14, 100], [16, 100]] %>
+        
+        <% @Temp_series_b =  [[2, 95], [4, 95], [6, 95], [8, 95], [10, 95], [12, 95], [14, 95], [16, 95]] %>
+        
+        <%= line_chart [{name: "Hyperthermia", data: @Temp_series_a}, {name: "Hypothermia", data: @Temp_series_b}],
+            label: "Value", xtitle: "Time", ytitle: "Heart Rate", curve: false, points: false, 
+            min: 90, max: 110, width: "800px", height: "500px" %>
+    </div>
+    
+    <div align="center", class="col-xs-6">
+        <h2 align="center">SpO2</h2>
+        
+        <% @SP_series_a =  [[2, 90], [4, 90], [6, 90], [8, 90], [10, 90], [12, 90], [14, 90], [16, 90]] %>
+        
+        <%= line_chart [{name: "Hypoxemia", data: @SP_series_a}],
+            label: "Value", xtitle: "Time", ytitle: "Heart Rate", curve: false, points: false, 
+            min: 80, max: 100, width: "800px", height: "500px" %>
+    </div>
+
+</div>
+</head>

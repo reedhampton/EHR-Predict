@@ -368,3 +368,709 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 12ms (Views: 11.5ms)
 
 
+Started GET "/" for 50.24.115.184 at 2019-04-07 18:26:06 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 369ms (Views: 196.3ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 18:26:07 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 13ms (Views: 11.8ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 18:27:36 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (36.6ms)
+Completed 500 Internal Server Error in 39ms
+
+
+  
+ActionView::Template::Error (Asset was not declared to be precompiled in production.
+Add `Rails.application.config.assets.precompile += %w( chartkick.js )` to `config/initializers/assets.rb` and restart your server):
+     6: 
+     7:     <%= stylesheet_link_tag    'application', media: 'all' %>
+     8:     <%= javascript_include_tag 'application' %>
+     9:     <%= javascript_include_tag "http://www.google.com/jsapi", "chartkick" %>
+    10:     <%= stylesheet_link_tag 'http://yandex.st/bootstrap/3.1.1/css/bootstrap.min.css' %>
+    11:     <%= javascript_include_tag 'http://yandex.st/bootstrap/3.1.1/js/bootstrap.min.js' %>
+    12:     
+  
+app/views/home/index.html.erb:9:in `_app_views_home_index_html_erb___4581530181338821788_70322586034580'
+Started GET "/" for 50.24.115.184 at 2019-04-07 18:28:31 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 500 Internal Server Error in 19ms
+
+
+  
+ActionView::Template::Error (Asset was not declared to be precompiled in production.
+Add `Rails.application.config.assets.precompile += %w( chartkick.js )` to `config/initializers/assets.rb` and restart your server):
+     8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+     9:     <%= stylesheet_link_tag    'application', media: 'all' %>
+    10:     <%= javascript_include_tag 'application' %>
+    11:     <%= javascript_include_tag "http://www.google.com/jsapi", "chartkick" %>
+    12:     <%= stylesheet_link_tag 'http://yandex.st/bootstrap/3.1.1/css/bootstrap.min.css' %>
+    13:     <%= javascript_include_tag 'http://yandex.st/bootstrap/3.1.1/js/bootstrap.min.js' %>
+    14:     
+  
+app/views/layouts/application.html.erb:11:in `_app_views_layouts_application_html_erb___511602506170071278_70322741200360'
+Started GET "/" for 50.24.115.184 at 2019-04-07 18:34:51 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+
+  
+NameError (uninitialized constant HomeController::Sporter):
+  
+app/controllers/home_controller.rb:3:in `index'
+Started GET "/" for 50.24.115.184 at 2019-04-07 18:34:57 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (2.2ms)
+Completed 500 Internal Server Error in 5ms
+
+
+  
+ActionView::Template::Error (undefined method `group_by_day' for nil:NilClass):
+     9:   <!-- Line Chart - Single Series -->
+    10:   <div class="col-xs-6">
+    11:     <h3>Visits By Day</h3>
+    12:     <%= line_chart @visits.group_by_day(:visited_at, format: "%B %d, %Y").count, discrete: true %>
+    13:   </div>
+    14: 
+    15: </div>
+  
+app/views/home/index.html.erb:12:in `_app_views_home_index_html_erb___4581530181338821788_70322592515840'
+Started GET "/" for 50.24.115.184 at 2019-04-07 18:36:38 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 22ms (Views: 21.6ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 18:36:53 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 16ms (Views: 14.9ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 18:37:42 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 16ms (Views: 15.5ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 18:37:43 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 16ms (Views: 15.7ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 18:39:17 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 16ms (Views: 15.7ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 18:40:27 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 17ms (Views: 15.9ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 18:40:47 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 17ms (Views: 16.6ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 18:40:56 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+Completed 500 Internal Server Error in 3ms
+
+
+  
+SyntaxError (/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:11: syntax error, unexpected ',', expecting '}'
+...    @data = Array.new(10) { 10, 20 } 
+...                              ^):
+  
+app/views/home/index.html.erb:11: syntax error, unexpected ',', expecting '}'
+Started GET "/" for 50.24.115.184 at 2019-04-07 18:42:16 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 198ms (Views: 196.9ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 18:44:09 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 19ms (Views: 17.6ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 18:44:27 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 18ms (Views: 17.0ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 18:46:52 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 18ms (Views: 17.6ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 18:47:12 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 19ms (Views: 18.2ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 18:50:08 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 3ms
+
+
+  
+SyntaxError (/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:11: syntax error, unexpected ',', expecting '}'
+...data = Array.new(10) { [10,10], [10,20], [10,30], [10,40], [...
+...                              ^
+/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:11: syntax error, unexpected ',', expecting keyword_end
+...ray.new(10) { [10,10], [10,20], [10,30], [10,40], [10,50] ,[...
+...                              ^
+/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:11: syntax error, unexpected ',', expecting keyword_end
+...0) { [10,10], [10,20], [10,30], [10,40], [10,50] ,[10,60], [...
+...                              ^
+/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:11: syntax error, unexpected ',', expecting keyword_end
+...10], [10,20], [10,30], [10,40], [10,50] ,[10,60], [10,70], [...
+...                              ^
+/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:11: syntax error, unexpected ',', expecting keyword_end
+...0], [10,30], [10,40], [10,50] ,[10,60], [10,70], [10,80] [10...
+...                              ^
+/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:11: syntax error, unexpected ',', expecting keyword_end
+...30], [10,40], [10,50] ,[10,60], [10,70], [10,80] [10,90], [1...
+...                              ^
+/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:11: syntax error, unexpected ',', expecting keyword_end
+...40], [10,50] ,[10,60], [10,70], [10,80] [10,90], [10,100]} 
+...                              ^
+/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:11: syntax error, unexpected '}', expecting &. or :: or '[' or '.'
+...70], [10,80] [10,90], [10,100]} 
+...                              ^):
+  
+app/views/home/index.html.erb:11: syntax error, unexpected ',', expecting '}'
+app/views/home/index.html.erb:11: syntax error, unexpected ',', expecting keyword_end
+app/views/home/index.html.erb:11: syntax error, unexpected ',', expecting keyword_end
+app/views/home/index.html.erb:11: syntax error, unexpected ',', expecting keyword_end
+app/views/home/index.html.erb:11: syntax error, unexpected ',', expecting keyword_end
+app/views/home/index.html.erb:11: syntax error, unexpected ',', expecting keyword_end
+app/views/home/index.html.erb:11: syntax error, unexpected ',', expecting keyword_end
+app/views/home/index.html.erb:11: syntax error, unexpected '}', expecting &. or :: or '[' or '.'
+Started GET "/" for 50.24.115.184 at 2019-04-07 18:50:24 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 3ms
+
+
+  
+SyntaxError (/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:11: syntax error, unexpected ',', expecting '}'
+...data = Array.new(10) { [10,10], [10,20], [10,30], [10,40], [...
+...                              ^
+/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:11: syntax error, unexpected ',', expecting keyword_end
+...ray.new(10) { [10,10], [10,20], [10,30], [10,40], [10,50] ,[...
+...                              ^
+/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:11: syntax error, unexpected ',', expecting keyword_end
+...0) { [10,10], [10,20], [10,30], [10,40], [10,50] ,[10,60], [...
+...                              ^
+/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:11: syntax error, unexpected ',', expecting keyword_end
+...10], [10,20], [10,30], [10,40], [10,50] ,[10,60], [10,70], [...
+...                              ^
+/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:11: syntax error, unexpected ',', expecting keyword_end
+...0], [10,30], [10,40], [10,50] ,[10,60], [10,70], [10,80] [10...
+...                              ^
+/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:11: syntax error, unexpected ',', expecting keyword_end
+...30], [10,40], [10,50] ,[10,60], [10,70], [10,80] [10,90], [1...
+...                              ^
+/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:11: syntax error, unexpected ',', expecting keyword_end
+...40], [10,50] ,[10,60], [10,70], [10,80] [10,90], [10,100]} 
+...                              ^
+/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:11: syntax error, unexpected '}', expecting &. or :: or '[' or '.'
+...70], [10,80] [10,90], [10,100]} 
+...                              ^):
+  
+app/views/home/index.html.erb:11: syntax error, unexpected ',', expecting '}'
+app/views/home/index.html.erb:11: syntax error, unexpected ',', expecting keyword_end
+app/views/home/index.html.erb:11: syntax error, unexpected ',', expecting keyword_end
+app/views/home/index.html.erb:11: syntax error, unexpected ',', expecting keyword_end
+app/views/home/index.html.erb:11: syntax error, unexpected ',', expecting keyword_end
+app/views/home/index.html.erb:11: syntax error, unexpected ',', expecting keyword_end
+app/views/home/index.html.erb:11: syntax error, unexpected ',', expecting keyword_end
+app/views/home/index.html.erb:11: syntax error, unexpected '}', expecting &. or :: or '[' or '.'
+Started GET "/" for 50.24.115.184 at 2019-04-07 18:53:33 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 24ms (Views: 22.8ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 18:54:18 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 26ms (Views: 25.0ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 18:54:25 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 26ms (Views: 25.2ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 18:57:33 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 33ms (Views: 31.8ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 19:00:07 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 18ms (Views: 17.1ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 19:01:14 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 18ms (Views: 17.3ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 19:07:47 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 19ms (Views: 18.2ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 19:08:45 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 20ms (Views: 18.9ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 19:09:06 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 19ms (Views: 17.9ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 19:09:32 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 18ms (Views: 17.6ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 19:09:45 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 19ms (Views: 18.3ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 19:13:55 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 4ms
+
+
+  
+SyntaxError (/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:17: syntax error, unexpected ',', expecting ')'
+...ting HR", data: @HR_series_b}], {library: library_options}), 
+...                              ^
+/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:18: syntax error, unexpected ',', expecting ')'
+            label: "Value", xtitle: "Time", ytitle: "Hea...
+                          ^
+/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:18: syntax error, unexpected ',', expecting ')'
+...label: "Value", xtitle: "Time", ytitle: "Heart Rate", curve:...
+...                              ^
+/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:18: syntax error, unexpected ',', expecting ')'
+...: "Time", ytitle: "Heart Rate", curve: false, points: false, 
+...                              ^
+/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:18: Can't assign to false
+...le: "Heart Rate", curve: false, points: false, 
+...                              ^
+/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:18: Can't assign to false
+...", curve: false, points: false, 
+...                              ^
+/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:19: syntax error, unexpected ',', expecting ')'
+...        min: 0, width: "800px", height: "500px" );@output_bu...
+...                              ^):
+  
+app/views/home/index.html.erb:17: syntax error, unexpected ',', expecting ')'
+app/views/home/index.html.erb:18: syntax error, unexpected ',', expecting ')'
+app/views/home/index.html.erb:18: syntax error, unexpected ',', expecting ')'
+app/views/home/index.html.erb:18: syntax error, unexpected ',', expecting ')'
+app/views/home/index.html.erb:18: Can't assign to false
+app/views/home/index.html.erb:18: Can't assign to false
+app/views/home/index.html.erb:19: syntax error, unexpected ',', expecting ')'
+Started GET "/" for 50.24.115.184 at 2019-04-07 19:14:25 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 4ms
+
+
+  
+SyntaxError (/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:17: syntax error, unexpected tSTRING_DEND, expecting ')'
+..._b}], library: library_options} 
+...                              ^
+/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:18: syntax error, unexpected ',', expecting ')'
+            label: "Value", xtitle: "Time", ytitle: "Hea...
+                          ^
+/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:18: syntax error, unexpected ',', expecting ')'
+...label: "Value", xtitle: "Time", ytitle: "Heart Rate", curve:...
+...                              ^
+/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:18: syntax error, unexpected ',', expecting ')'
+...: "Time", ytitle: "Heart Rate", curve: false, points: false, 
+...                              ^
+/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:18: Can't assign to false
+...le: "Heart Rate", curve: false, points: false, 
+...                              ^
+/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:18: Can't assign to false
+...", curve: false, points: false, 
+...                              ^
+/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:19: syntax error, unexpected ',', expecting ')'
+...        min: 0, width: "800px", height: "500px" );@output_bu...
+...                              ^):
+  
+app/views/home/index.html.erb:17: syntax error, unexpected tSTRING_DEND, expecting ')'
+app/views/home/index.html.erb:18: syntax error, unexpected ',', expecting ')'
+app/views/home/index.html.erb:18: syntax error, unexpected ',', expecting ')'
+app/views/home/index.html.erb:18: syntax error, unexpected ',', expecting ')'
+app/views/home/index.html.erb:18: Can't assign to false
+app/views/home/index.html.erb:18: Can't assign to false
+app/views/home/index.html.erb:19: syntax error, unexpected ',', expecting ')'
+Started GET "/" for 50.24.115.184 at 2019-04-07 19:14:32 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 4ms
+
+
+  
+SyntaxError (/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:18: syntax error, unexpected ':', expecting ')'
+            label: "Value", xtitle: "Time", yti...
+                 ^
+/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:18: syntax error, unexpected ',', expecting ')'
+            label: "Value", xtitle: "Time", ytitle: "Hea...
+                          ^
+/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:18: syntax error, unexpected ',', expecting ')'
+...label: "Value", xtitle: "Time", ytitle: "Heart Rate", curve:...
+...                              ^
+/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:18: syntax error, unexpected ',', expecting ')'
+...: "Time", ytitle: "Heart Rate", curve: false, points: false, 
+...                              ^
+/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:18: Can't assign to false
+...le: "Heart Rate", curve: false, points: false, 
+...                              ^
+/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:18: Can't assign to false
+...", curve: false, points: false, 
+...                              ^
+/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:19: syntax error, unexpected ',', expecting ')'
+...        min: 0, width: "800px", height: "500px" );@output_bu...
+...                              ^):
+  
+app/views/home/index.html.erb:18: syntax error, unexpected ':', expecting ')'
+app/views/home/index.html.erb:18: syntax error, unexpected ',', expecting ')'
+app/views/home/index.html.erb:18: syntax error, unexpected ',', expecting ')'
+app/views/home/index.html.erb:18: syntax error, unexpected ',', expecting ')'
+app/views/home/index.html.erb:18: Can't assign to false
+app/views/home/index.html.erb:18: Can't assign to false
+app/views/home/index.html.erb:19: syntax error, unexpected ',', expecting ')'
+Started GET "/" for 50.24.115.184 at 2019-04-07 19:14:42 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 3ms
+
+
+  
+SyntaxError (/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:18: syntax error, unexpected ':', expecting ')'
+            label: "Value", xtitle: "Time", yti...
+                 ^
+/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:18: syntax error, unexpected ',', expecting ')'
+            label: "Value", xtitle: "Time", ytitle: "Hea...
+                          ^
+/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:18: syntax error, unexpected ',', expecting ')'
+...label: "Value", xtitle: "Time", ytitle: "Heart Rate", curve:...
+...                              ^
+/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:18: syntax error, unexpected ',', expecting ')'
+...: "Time", ytitle: "Heart Rate", curve: false, points: false, 
+...                              ^
+/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:18: Can't assign to false
+...le: "Heart Rate", curve: false, points: false, 
+...                              ^
+/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:18: Can't assign to false
+...", curve: false, points: false, 
+...                              ^
+/home/ec2-user/environment/EHR-Predict/app/views/home/index.html.erb:19: syntax error, unexpected ',', expecting ')'
+...        min: 0, width: "800px", height: "500px" );@output_bu...
+...                              ^):
+  
+app/views/home/index.html.erb:18: syntax error, unexpected ':', expecting ')'
+app/views/home/index.html.erb:18: syntax error, unexpected ',', expecting ')'
+app/views/home/index.html.erb:18: syntax error, unexpected ',', expecting ')'
+app/views/home/index.html.erb:18: syntax error, unexpected ',', expecting ')'
+app/views/home/index.html.erb:18: Can't assign to false
+app/views/home/index.html.erb:18: Can't assign to false
+app/views/home/index.html.erb:19: syntax error, unexpected ',', expecting ')'
+Started GET "/" for 50.24.115.184 at 2019-04-07 19:14:48 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (178.9ms)
+Completed 500 Internal Server Error in 182ms
+
+
+  
+ActionView::Template::Error (undefined local variable or method `library_options' for #<#<Class:0x00007fea824b0608>:0x000000000299f7f8>):
+    14:         
+    15:         library_options = { hAxis: {ticks: 10}, vAxis: {ticks: 5}}
+    16:         
+    17:         <%= line_chart [{name: "Average High HR", data: @HR_series_a}, {name: "Average Resting HR", data: @HR_series_b}], library: library_options, 
+    18:             label: "Value", xtitle: "Time", ytitle: "Heart Rate", curve: false, points: false, 
+    19:             min: 0, width: "800px", height: "500px" %>
+    20:     </div>
+  
+app/views/home/index.html.erb:17:in `_app_views_home_index_html_erb___4581530181338821788_21919780'
+Started GET "/" for 50.24.115.184 at 2019-04-07 19:15:07 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 17ms (Views: 16.3ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 19:15:13 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 18ms (Views: 17.0ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 19:15:35 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 17ms (Views: 16.5ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 19:15:53 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 19ms (Views: 17.9ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 19:16:01 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 24ms (Views: 23.6ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 19:16:15 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 19ms (Views: 18.0ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 19:19:02 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 20ms (Views: 18.5ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 19:19:58 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 19ms (Views: 17.5ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 19:20:33 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 20ms (Views: 19.0ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 19:20:37 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 20ms (Views: 19.1ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 19:21:29 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 19ms (Views: 18.3ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 19:24:47 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 20ms (Views: 18.7ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 19:34:18 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 21ms (Views: 20.4ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 19:36:50 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 25ms (Views: 23.9ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 19:41:43 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 19ms (Views: 18.1ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 19:42:01 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 19ms (Views: 18.2ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 19:42:22 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 19ms (Views: 18.6ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 19:42:43 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 20ms (Views: 18.8ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 19:42:53 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 21ms (Views: 20.5ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 19:43:14 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 20ms (Views: 19.4ms)
+
+
+Started GET "/" for 50.24.115.184 at 2019-04-07 19:44:29 +0000
+Cannot render console from 50.24.115.184! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 20ms (Views: 19.3ms)
+
+
