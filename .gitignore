@@ -4,3 +4,6 @@ tmp/
 # Ignore everything in log
 log/
 
+#ignore config
+.bundle/config
+
