@@ -1,0 +1,6 @@
+# Ignore everything in tmp
+tmp/
+
+# Ignore everything in log
+log/
+
