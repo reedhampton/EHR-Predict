@@ -22,16 +22,16 @@ class HomeController < ApplicationController
     
     @SP_series_a =  [[2, 90], [16, 90]]
     
-    @patient_risk = 52
-    @model1_risk = 0;
-    @model2_risk = 0;
-    @model2_risk = 0;
-    @model2_risk = 0;
+    @patient_risk = 90
+    @model1_risk = 0
+    @model2_risk = 0
+    @model2_risk = 0
+    @model2_risk = 0
     
     @mdoel_variable1 = 'Heart Rate'
     @mdoel_variable2 = 'SpO2'
     
-    @image_patient_risk = 50
+    @image_patient_risk = round_to_next_5(@patient_risk)
     @image_path = '/assets/risk_' + @image_patient_risk.to_s + '.jpg'
     
     @doctor_notes = "These are the doctors notes."
@@ -39,4 +39,14 @@ class HomeController < ApplicationController
     @discharge_notes = "These are the discharge notes."
     
   end
+  
+  def round_to_next_5(n)
+      if n % 5 == 0
+        return n
+      else 
+        return n.round(-1)
+      end
+  end
 end
+
+
