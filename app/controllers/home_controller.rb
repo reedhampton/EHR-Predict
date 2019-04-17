@@ -1,5 +1,12 @@
 class HomeController < ApplicationController
   def index
+    flash.clear
+  end
+  
+  def results
+    flash.clear
+    flash[:success] = "Successful Precitive Analysis"
+    
     # for csv.count()
     # get start time
     # get end time
@@ -37,7 +44,31 @@ class HomeController < ApplicationController
     @doctor_notes = "These are the doctors notes."
     @nurse_notes = "These are the nurse notes."
     @discharge_notes = "These are the discharge notes."
+  end
+  
+  def create
+    flash.clear
+    #Uploads the CSV into the /uploads directory
+    uploaded_io = params[:user_input][:data]
     
+    # Validate the file format, redirect if not a CSV
+    if uploaded_io.content_type != "application/octet-stream"
+      flash[:alert] = "Incorrect File Type"
+      redirect_to '/analysis'
+    #Save the file and move on
+    else
+      File.open(Rails.root.join('uploads', 'Patient Data.csv'), 'wb') do |file|
+        file.write(uploaded_io.read)
+      end
+  
+      #Call the Fancy Python Script
+      #Get the returns from the Fancy python Script
+      #Parse those returns
+      #Put them in sessions
+      #Delete teh CSV
+      
+      redirect_to '/results'
+    end
   end
   
   def round_to_next_5(n)
@@ -46,6 +77,20 @@ class HomeController < ApplicationController
       else 
         return n.round(-1)
       end
+  end
+  
+  def download_blank_csv
+    send_file(
+      "#{Rails.root}/app/assets/data/blank_csv.csv",
+      filename: "blank_csv.csv"
+    )
+  end
+  
+  def download_sample_data
+    send_file(
+      "#{Rails.root}/app/assets/data/sample_data.csv",
+      filename: "sample_data.csv"
+    )
   end
 end
 
