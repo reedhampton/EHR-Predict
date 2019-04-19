@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
+    
     # for csv.count()
     # get start time
     # get end time
@@ -35,7 +36,7 @@ class HomeController < ApplicationController
     @image_path = '/assets/risk_' + @image_patient_risk.to_s + '.jpg'
     
     @doctor_notes = "These are the doctors notes."
-    @nurse_notes = "These are the nurse notes."
+    @event_notes = "These are the event notes."
     @discharge_notes = "These are the discharge notes."
     
   end
