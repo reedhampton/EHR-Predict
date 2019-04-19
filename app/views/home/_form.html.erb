@@ -1,0 +1,7 @@
+<%= form_for :user_input, :url => url_for(:controller => 'home', :action => 'create') do |form| %>
+  <div class='mx-auto text-center'>
+    <%= form.file_field :data, :class=> 'btn btn-primary'%>
+    <br>
+    <%= form.submit "Generate Analysis", :class=> 'btn btn-success mt-4' %>
+  </div>
+<% end  %>
