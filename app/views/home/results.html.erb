@@ -14,7 +14,7 @@
         <div  id = "HeartRate", align="right", class="col-md-12">
             <h2 style="text-align:center; width:100%">HeartRate</h2>
             
-            <%= line_chart [{name: "Average High HR", data: @HR_series_a}, {name: "Average Resting HR", data: @HR_series_b}],
+            <%= line_chart [{name: "Average High HR", data: @HR_series_a}, {name: "Average Resting HR", data: @HR_series_b}, {name: "Patient HR", data: @HR_series_data}],
                 label: "Value", xtitle: "Time", ytitle: "Heart Rate", curve: false, points: false, 
                 min: 0,  width: "100%" %>
         </div>
@@ -22,7 +22,7 @@
         <div id = "SBP", align="right", class="col-md-12", style="display:none">
             <h2 style="text-align:center; width:100%">Systolic Arterial BP</h2>
         
-            <%= line_chart [{name: "Normal", data: @DBP_series_a}, {name: "Hypertension", data: @DBP_series_b}, {name: "Hypertensive Crisis", data: @DBP_series_c}],
+            <%= line_chart [{name: "Normal", data: @DBP_series_a}, {name: "Hypertension", data: @DBP_series_b}, {name: "Hypertensive Crisis", data: @DBP_series_c}, {name: "Patient BP", data: @DBP_series_data}],
                 label: "Value", xtitle: "Time", ytitle: "Systolic Arterial BP", curve: false, points: false, 
                 min: 0, width: "100%" %>
         </div>
@@ -30,7 +30,7 @@
         <div id = "DBP", align="right", class="col-md-12", style="display:none">
             <h2 style="text-align:center; width:100%">Diastolic Arterial BP</h2>
         
-            <%= line_chart [{name: "Normal", data: @DBP_series_a}, {name: "Hypertension", data: @DBP_series_b}, {name: "Hypertensive Crisis", data: @DBP_series_c}],
+            <%= line_chart [{name: "Normal", data: @DBP_series_a}, {name: "Hypertension", data: @DBP_series_b}, {name: "Hypertensive Crisis", data: @DBP_series_c}, {name: "Patient BP", data: @DBP_series_data}],
                 label: "Value", xtitle: "Time", ytitle: "Diastolic Arterial BP", curve: false, points: false, 
                 min: 0, width: "100%" %>
         </div>
@@ -38,18 +38,16 @@
         <div id = "Temp", align="right", class="col-md-12", style="display:none">
             <h2 style="text-align:center; width:100%">Tempurature</h2>
         
-            <%= line_chart [{name: "Hyperthermia", data: @Temp_series_a}, {name: "Hypothermia", data: @Temp_series_b}],
-                label: "Value", xtitle: "Time", ytitle: "Tempurature", curve: false, points: false, 
-                min: 90, max: 110, width: "100%" %>
+            <%= line_chart [{name: "Hyperthermia", data: @Temp_series_a}, {name: "Hypothermia", data: @Temp_series_b}, {name: "Patient temp", data: @Temp_series_data}],
+                label: "Value", xtitle: "Time", ytitle: "Tempurature", curve: false, points: false,  width: "100%" %>
         </div>
         
         
         <div id = "Sp02", align="right", class="col-md-12", style="display:none">
             <h2 style="text-align:center; width:100%">SpO2</h2>
             
-            <%= line_chart [{name: "Hypoxemia", data: @SP_series_a}],
-                label: "Value", xtitle: "Time", ytitle: "SpO2", curve: false, points: false, 
-                min: 80, max: 100, width: "100%" %>
+            <%= line_chart [{name: "Hypoxemia", data: @SP_series_a}, {name: "Patient temp", data: @SP_series_data}],
+                label: "Value", xtitle: "Time", ytitle: "SpO2", curve: false, points: false,  width: "100%" %>
         </div>
         <div class="container-fluid" align="center">
             <button class="btn btn-primary", onclick="ShowHide(event, 'HeartRate')">HeartRate</button>
