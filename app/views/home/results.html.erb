@@ -1,89 +1,80 @@
 
-<div id = "top">
-    <div id = "left">
-       <img src = <%= @image_path %> width = "35%" height = "55%", align="left">
-       <p> <br> <br> <br> <br>Patient Risk: <%= @patient_risk %> <br>Model 1 Risk: <%= @model1_risk %><br>Model 2 Risk: <%= @model2_risk %><br>Model 3 Risk: <%= @model3_risk %><br> Model 4 Risk: <%= @model4_risk %> <br> INFO TEXT INFO TEXT INFO TEXT <br> INFO TEXT INFO TEXT INFO TEXT <br> INFO TEXT INFO TEXT INFO TEXT</p>
+
+<div class="row">
+    <div class="col-md-5">
+        <div class="row"> <div class="col-md-1"></div>
+            <div class="col-md-4"><img src = <%= @image_path %> width = "55%" height = "100%"></div>
+            <div class="col-md-5">
+               <p> <br> <br> <br> <br>Patient Risk: <%= @patient_risk %> <br>Model 1 Risk: <%= @model1_risk %><br>Model 2 Risk: <%= @model2_risk %><br>Model 3 Risk: <%= @model3_risk %><br> Model 4 Risk: <%= @model4_risk %> <br> INFO TEXT INFO TEXT INFO TEXT <br> INFO TEXT INFO TEXT INFO TEXT <br> INFO TEXT INFO TEXT INFO TEXT</p>
+            </div>
+        </div>
     </div>
     
-
-    <div id = "right">
-        
-        <!–– Graphs ––>
-        
-        <div  id = "HeartRate", align="right", class="col-xs-6">
+    <div class="col-md-7">
+        <div  id = "HeartRate", align="right", class="col-md-12">
             <h2 style="text-align:center; width:100%">HeartRate</h2>
             
-            <%= line_chart [{name: "Average High HR", data: @HR_series_a}, {name: "Average Resting HR", data: @HR_series_b}],
+            <%= line_chart [{name: "Average High HR", data: @HR_series_a}, {name: "Average Resting HR", data: @HR_series_b}, {name: "Patient HR", data: @HR_series_data}],
                 label: "Value", xtitle: "Time", ytitle: "Heart Rate", curve: false, points: false, 
                 min: 0,  width: "100%" %>
         </div>
         
-        <div id = "SBP", align="right", class="col-xs-6", style="display:none">
+        <div id = "SBP", align="right", class="col-md-12", style="display:none">
             <h2 style="text-align:center; width:100%">Systolic Arterial BP</h2>
-    
-            <%= line_chart [{name: "Normal", data: @DBP_series_a}, {name: "Hypertension", data: @DBP_series_b}, {name: "Hypertensive Crisis", data: @DBP_series_c}],
+        
+            <%= line_chart [{name: "Normal", data: @DBP_series_a}, {name: "Hypertension", data: @DBP_series_b}, {name: "Hypertensive Crisis", data: @DBP_series_c}, {name: "Patient BP", data: @DBP_series_data}],
                 label: "Value", xtitle: "Time", ytitle: "Systolic Arterial BP", curve: false, points: false, 
                 min: 0, width: "100%" %>
         </div>
-    
-        <div id = "DBP", align="right", class="col-xs-6", style="display:none">
-            <h2 style="text-align:center; width:100%">Diastolic Arterial BP</h2>
-    
-            <%= line_chart [{name: "Normal", data: @DBP_series_a}, {name: "Hypertension", data: @DBP_series_b}, {name: "Hypertensive Crisis", data: @DBP_series_c}],
-                label: "Value", xtitle: "Time", ytitle: "Diastolic Arterial BP", curve: false, points: false, 
-                min: 0, width: "100%" %>
+        
+        <div id = "Creatinine", align="right", class="col-md-12", style="display:none">
+            <h2 style="text-align:center; width:100%">Creatinine Level</h2>
+        
+            <%= line_chart [{name: "Creatinine Level", data: @Creatinine_series_data}],
+                label: "Value", xtitle: "Time", ytitle: "Creatinine Level", curve: false, points: false,  width: "100%" %>
         </div>
-    
-        <div id = "Temp", align="right", class="col-xs-6", style="display:none">
-            <h2 style="text-align:center; width:100%">Tempurature</h2>
-    
-            <%= line_chart [{name: "Hyperthermia", data: @Temp_series_a}, {name: "Hypothermia", data: @Temp_series_b}],
-                label: "Value", xtitle: "Time", ytitle: "Tempurature", curve: false, points: false, 
-                min: 90, max: 110, width: "100%" %>
+        
+        <div id = "Platelet", align="right", class="col-md-12", style="display:none">
+            <h2 style="text-align:center; width:100%">Platelet Count</h2>
+        
+            <%= line_chart [{name: "Platelet Count", data: @Platelet_series_data}],
+                label: "Value", xtitle: "Time", ytitle: "Platelet Count", curve: false, points: false,  width: "100%" %>
         </div>
-    
-        <div id = "Sp02", align="right", class="col-xs-6", style="display:none">
-            <h2 style="text-align:center; width:100%">SpO2</h2>
-            
-            <%= line_chart [{name: "Hypoxemia", data: @SP_series_a}],
-                label: "Value", xtitle: "Time", ytitle: "SpO2", curve: false, points: false, 
-                min: 80, max: 100, width: "100%" %>
-        </div>
-    
-        <div style="text-align:center;">
-            <button class="graphtoggle", onclick="ShowHide(event, 'HeartRate')">HeartRate</button>
-            <button class="graphtoggle", onclick="ShowHide(event, 'SBP')">Systolic Arterial BP</button>
-            <button class="graphtoggle", onclick="ShowHide(event, 'DBP')">Diastolic Arterial BP</button>
-            <button class="graphtoggle", onclick="ShowHide(event, 'Temp')">Tempurature</button>
-            <button class="graphtoggle", onclick="ShowHide(event, 'Sp02')">SpO2</button>
+        
+        <div class="container-fluid" align="center">
+            <button class="btn btn-primary", onclick="ShowHide(event, 'HeartRate')">HeartRate</button>
+            <button class="btn btn-primary", onclick="ShowHide(event, 'SBP')">Systolic Arterial BP</button>
+            <button class="btn btn-primary", onclick="ShowHide(event, 'Creatinine')">Creatinine</button>
+            <button class="btn btn-primary", onclick="ShowHide(event, 'Platelet')">Platelet Count</button>
         </div>
     </div>
 </div>
-
-
-<!–– Doctors notes ––>
-<div id = "bottom">
-    <div class="tab">
-      <button class="tablinks" onclick="OpenNotes(event, 'doctor_notes')">Doctor</button>
-      <button class="tablinks" onclick="OpenNotes(event, 'nurse_notes')">Nurse</button>
-      <button class="tablinks" onclick="OpenNotes(event, 'discharge_notes')">Discharge</button>
-    </div>
-
-    <!-- Tab content -->
-    <div id="doctor_notes" class="tabcontent">
-      <h3>Doctor</h3>
-      <p><%= @doctor_notes %> </p>
-    </div>
-    
-    <div id="nurse_notes" class="tabcontent">
-      <h3>Nurse</h3>
-      <p><%= @nurse_notes %></p> 
-    </div>
-    
-    <div id="discharge_notes" class="tabcontent">
-      <h3>Discharge</h3>
-      <p><%= @discharge_notes %></p>
-    </div>
+<br>
+<br>
+<br>
+<div class="container-fluid">
+        <div class="btn-group">
+          <button class="btn btn-primary active" onclick="OpenNotes(event, 'doctor_notes')">Doctor</button>
+          <button class="btn btn-primary" onclick="OpenNotes(event, 'event_notes')">Event</button>
+          <button class="btn btn-primary" onclick="OpenNotes(event, 'discharge_notes')">Discharge</button>
+        </div>
+        
+        <div class="tab-content">
+            <div id="doctor_notes" class="tab-pane active">
+              <h3>Doctor</h3>
+              <p><%= @doctor_notes %> </p>
+            </div>
+            
+            <div id="event_notes" class="tab-pane">
+              <h3>Event</h3>
+              <p><%= @event_notes %></p> 
+            </div>
+            
+            <div id="discharge_notes" class="tab-pane">
+              <h3>Discharge</h3>
+              <p><%= @discharge_notes %></p>
+            </div>
+        </div>
 </div>
 
 
@@ -95,13 +86,13 @@ function ShowHide(evt, ID)
     var i, graphs, toggles;
     
     // Get all elements and hide them all
-    graphs = document.getElementsByClassName("col-xs-6");
+    graphs = document.getElementsByClassName("col-md-12");
     for (i = 0; i < graphs.length; i++) 
     {
         graphs[i].style.display = "none";
     }
     
-    toggles = document.getElementsByClassName("graphtoggle");
+    toggles = document.getElementsByClassName("btn btn-primary");
     for (i = 0; i < toggles.length; i++) 
     {
         toggles[i].className = toggles[i].className.replace(" active", "");
@@ -117,13 +108,13 @@ function OpenNotes(evt, ID)
     
     var i, tabcontent, tablinks;
     
-    tabcontent = document.getElementsByClassName("tabcontent");
+    tabcontent = document.getElementsByClassName("tab-pane");
     for (i = 0; i < tabcontent.length; i++)
     {
         tabcontent[i].style.display = "none";
     }
     
-    tablinks = document.getElementsByClassName("tablinks");
+    tablinks = document.getElementsByClassName("btn btn-primary");
     for (i = 0; i < tablinks.length; i++)
     {   
         tablinks[i].className = tablinks[i].className.replace(" active", "");
