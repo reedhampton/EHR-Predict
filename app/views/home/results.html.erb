@@ -11,49 +11,47 @@
     </div>
     
     <div class="col-md-7">
-        <div  id = "HeartRate", align="right", class="col-md-12">
+        <div  id = "HeartRate", align="right", class="col-md-12 active">
             <h2 style="text-align:center; width:100%">HeartRate</h2>
             
             <%= line_chart [{name: "Average High HR", data: @HR_series_a}, {name: "Average Resting HR", data: @HR_series_b}, {name: "Patient HR", data: @HR_series_data}],
-                label: "Value", xtitle: "Time", ytitle: "Heart Rate", curve: false, points: false, 
-                min: 0,  width: "100%" %>
+                label: "Value", xtitle: "Time", ytitle: "Heart Rate", curve: false, points: false,  min: 0,  width: "100%" %>
         </div>
         
-        <div id = "SBP", align="right", class="col-md-12", style="display:none">
+        <div id = "SBP", align="right", class="col-md-12", style="display:hidden">
             <h2 style="text-align:center; width:100%">Systolic Arterial BP</h2>
         
-            <%= line_chart [{name: "Normal", data: @DBP_series_a}, {name: "Hypertension", data: @DBP_series_b}, {name: "Hypertensive Crisis", data: @DBP_series_c}, {name: "Patient BP", data: @DBP_series_data}],
+            <%= line_chart [{name: "Normal", data: @SBP_series_a}, {name: "Hypertension", data: @SBP_series_b}, {name: "Hypertensive Crisis", data: @SBP_series_c}, {name: "Patient BP", data: @SBP_series_data}],
                 label: "Value", xtitle: "Time", ytitle: "Systolic Arterial BP", curve: false, points: false, 
-                min: 0, width: "100%" %>
+                min: 50, width: "100%" %>
         </div>
         
-        <div id = "Creatinine", align="right", class="col-md-12", style="display:none">
+        <div id = "Creatinine", align="right", class="col-md-12", style="display:hidden">
             <h2 style="text-align:center; width:100%">Creatinine Level</h2>
         
             <%= line_chart [{name: "Creatinine Level", data: @Creatinine_series_data}],
-                label: "Value", xtitle: "Time", ytitle: "Creatinine Level", curve: false, points: false,  width: "100%" %>
+                label: "Value", xtitle: "Time", ytitle: "Creatinine Level", curve: false, points: false,  min: 0, width: "100%" %>
         </div>
         
-        <div id = "Platelet", align="right", class="col-md-12", style="display:none">
+        <div id = "Platelet", align="right", class="col-md-12", style="display:hidden">
             <h2 style="text-align:center; width:100%">Platelet Count</h2>
         
-            <%= line_chart [{name: "Low", data: @Platelet_series_a}, {name: "Platelet Count", data: @Platelet_series_data}],
-                label: "Value", xtitle: "Time", ytitle: "Platelet Count", curve: false, points: false,  width: "100%" %>
+            <%= line_chart [{name: "Low Platelet Count", data: @Platelet_series_a}, {name: "Platelet Count", data: @Platelet_series_data}],
+                label: "Value", xtitle: "Time", ytitle: "Platelet Count", curve: false, points: false, min: 0, width: "100%" %>
         </div>
         
-        <div id = "HeartRhythm", align="right", class="col-md-12", style="display:none">
-            <h2 style="text-align:center; width:100%">Heart Rhythm</h2>
-        
-            <%= line_chart [{name: "Heart Rhythm", data: @Platelet_series_data}],
-                label: "Value", xtitle: "Time", ytitle: "Heart Rhythm", curve: false, points: false,  width: "100%" %>
-        </div>
+        <!-- Have to do this here else the plot axis freak out and don't display all of thier data -->
+        <script>
+            document.getElementById("SBP").style.display = "none";
+            document.getElementById("Creatinine").style.display = "none";
+            document.getElementById("Platelet").style.display = "none";
+        </script>
         
         <div class="container-fluid" align="center">
             <button class="btn btn-primary", onclick="ShowHide(event, 'HeartRate')">HeartRate</button>
             <button class="btn btn-primary", onclick="ShowHide(event, 'SBP')">Systolic Arterial BP</button>
             <button class="btn btn-primary", onclick="ShowHide(event, 'Creatinine')">Creatinine</button>
             <button class="btn btn-primary", onclick="ShowHide(event, 'Platelet')">Platelet Count</button>
-            <button class="btn btn-primary", onclick="ShowHide(event, 'HeartRhythm')">Heart Rhythm</button>
         </div>
     </div>
 </div>
