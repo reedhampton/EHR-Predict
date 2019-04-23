@@ -10,18 +10,14 @@ class HomeController < ApplicationController
     flash.clear
     flash[:success] = "Successful Precitive Analysis"
     
-    # for csv.count()
-    # get start time
-    # get end time
-    # apply to series
     table = CSV.read("#{Rails.root}/uploads/Patient Data.csv", headers: true)
     @data_start_time = table['charttime'].values_at(0)
-    @data_end_time = table['charttime'].values_at(-1)
+    @data_end_time = table['charttime'].last
     time = table['charttime']
     hr = table['heart_rate']
     bp = table['abp_systolic']
-    gs = table['gcs_total']
     pl = table['platelets']
+    cr = table['creatinine']
     
     @HR_series_data = [time, hr].transpose
     @HR_series_a =  [[@data_start_time, 100], [@data_end_time, 100]]
@@ -37,12 +33,11 @@ class HomeController < ApplicationController
     @DBP_series_b =  [[@data_start_time, 80], [@data_end_time, 80]]
     @DBP_series_c =  [[@data_start_time, 120], [@data_end_time, 120]]
     
-    @Temp_series_data = [time, gs].transpose
-    @Temp_series_a =  [[@data_start_time, 100], [@data_end_time, 100]]
-    @Temp_series_b =  [[@data_start_time, 95], [@data_end_time, 95]]
+    @Platelet_series_data = [time, pl].transpose
+    @Platelet_series_a =  [[@data_start_time, 100], [@data_end_time, 100]]
+    @Platelet_series_b =  [[@data_start_time, 95], [@data_end_time, 95]]
     
-    @SP_series_data = [time, pl].transpose
-    @SP_series_a =  [[@data_start_time, 90], [@data_end_time, 90]]
+    @Creatinine_series_data = [time, cr].transpose
     
     @patient_risk = 90
     @model1_risk = 0
@@ -81,7 +76,6 @@ class HomeController < ApplicationController
       #Get the returns from the Fancy python Script
       #Parse those returns
       #Put them in sessions
-      assign_session_data() #does nothing right now
       
       #Delete teh CSV
       
