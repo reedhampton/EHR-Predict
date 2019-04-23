@@ -34,8 +34,7 @@ class HomeController < ApplicationController
     @DBP_series_c =  [[@data_start_time, 120], [@data_end_time, 120]]
     
     @Platelet_series_data = [time, pl].transpose
-    @Platelet_series_a =  [[@data_start_time, 100], [@data_end_time, 100]]
-    @Platelet_series_b =  [[@data_start_time, 95], [@data_end_time, 95]]
+    @Platelet_series_a =  [[@data_start_time, 150], [@Platelet_series_data, 150]]
     
     @Creatinine_series_data = [time, cr].transpose
     

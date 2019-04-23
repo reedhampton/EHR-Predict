@@ -13,7 +13,7 @@ with open(filename, 'rb') as csvFile, tempfile:
     rows = []
     on_head_row = True
     gcs_value = None
-    gcs_total_pos = 15
+    gcs_total_pos = 18
     
     #Determine the value we need to fill the beginning data cells with if they are null
     for row in reader:
@@ -36,7 +36,7 @@ with open(filename, 'rb') as csvFile, tempfile:
     #Keep reading and writing and updating each row as needed
     for row in reader:
         if row[gcs_total_pos] == '':
-            row[gcs_total_pos] = gcs_value
+            row[gcs_total_pos] = 95
         else:
             gcs_value = row[gcs_total_pos]
         writer.writerow(row)

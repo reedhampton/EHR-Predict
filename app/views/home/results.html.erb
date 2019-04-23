@@ -37,8 +37,15 @@
         <div id = "Platelet", align="right", class="col-md-12", style="display:none">
             <h2 style="text-align:center; width:100%">Platelet Count</h2>
         
-            <%= line_chart [{name: "Platelet Count", data: @Platelet_series_data}],
+            <%= line_chart [{name: "Low", data: @Platelet_series_a}, {name: "Platelet Count", data: @Platelet_series_data}],
                 label: "Value", xtitle: "Time", ytitle: "Platelet Count", curve: false, points: false,  width: "100%" %>
+        </div>
+        
+        <div id = "HeartRhythm", align="right", class="col-md-12", style="display:none">
+            <h2 style="text-align:center; width:100%">Heart Rhythm</h2>
+        
+            <%= line_chart [{name: "Heart Rhythm", data: @Platelet_series_data}],
+                label: "Value", xtitle: "Time", ytitle: "Heart Rhythm", curve: false, points: false,  width: "100%" %>
         </div>
         
         <div class="container-fluid" align="center">
@@ -46,6 +53,7 @@
             <button class="btn btn-primary", onclick="ShowHide(event, 'SBP')">Systolic Arterial BP</button>
             <button class="btn btn-primary", onclick="ShowHide(event, 'Creatinine')">Creatinine</button>
             <button class="btn btn-primary", onclick="ShowHide(event, 'Platelet')">Platelet Count</button>
+            <button class="btn btn-primary", onclick="ShowHide(event, 'HeartRhythm')">Heart Rhythm</button>
         </div>
     </div>
 </div>
