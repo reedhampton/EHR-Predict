@@ -11,8 +11,6 @@ class HomeController < ApplicationController
     flash[:success] = "Successful Precitive Analysis"
     
     table = CSV.read("#{Rails.root}/uploads/Patient Data.csv", headers: true)
-    @data_start_time = table['charttime'].values_at(0)
-    @data_end_time = table['charttime'].last
     time = table['charttime']
     hr = table['heart_rate']
     bp = table['abp_systolic']
@@ -20,21 +18,16 @@ class HomeController < ApplicationController
     cr = table['creatinine']
     
     @HR_series_data = [time, hr].transpose
-    @HR_series_a =  [[@data_start_time, 100], [@data_end_time, 100]]
-    @HR_series_b =  [[@data_start_time, 60], [@data_end_time, 60]]
+    @HR_series_a =  [time, Array.new(time.length, 100)].transpose
+    @HR_series_b =  [time, Array.new(time.length, 60)].transpose
     
     @SBP_series_data = [time, bp].transpose
-    @SBP_series_a =  [[@data_start_time, 110], [@data_end_time, 110]]
-    @SBP_series_b =  [[@data_start_time, 130], [@data_end_time, 130]]
-    @SBP_series_c =  [[@data_start_time, 180], [@data_end_time, 180]]
-   
-    @DBP_series_data = [time, bp].transpose
-    @DBP_series_a =  [[@data_start_time, 70], [@data_end_time, 70]]
-    @DBP_series_b =  [[@data_start_time, 80], [@data_end_time, 80]]
-    @DBP_series_c =  [[@data_start_time, 120], [@data_end_time, 120]]
+    @SBP_series_a =  [time, Array.new(time.length, 110)].transpose
+    @SBP_series_b =  [time, Array.new(time.length, 130)].transpose
+    @SBP_series_c =  [time, Array.new(time.length, 180)].transpose
     
     @Platelet_series_data = [time, pl].transpose
-    @Platelet_series_a =  [[@data_start_time, 150], [@Platelet_series_data, 150]]
+    @Platelet_series_a =  [time, Array.new(time.length, 150)].transpose
     
     @Creatinine_series_data = [time, cr].transpose
     
