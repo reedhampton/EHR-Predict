@@ -64,7 +64,7 @@ def call_cloud_eval_with_model(X):
     return results
 
 def main():
-    X = pd.read_csv("placeholderEval.csv")
+    X = pd.read_csv("../../uploads/Patient Data.csv")
     X = (place_holder_data_transformation(X)).values
     results = call_cloud_eval_with_model(X)
     print("shape: ",X.shape)
