@@ -2,7 +2,7 @@ from tempfile import NamedTemporaryFile
 import shutil
 import csv
 
-filename = 'Patient Data.csv'
+filename = '../../uploads/Patient Data.csv'
 tempfile = NamedTemporaryFile(delete=False)
 
 with open(filename, 'rt') as csvFile, tempfile:
@@ -61,4 +61,4 @@ with open(filename, 'rt') as csvFile, tempfile:
 		rhythm_value_first = rhythm_value_second
 		after_first_iteration = True
 #Write to our updated file CHANGE TO 'filename' WHEN OTHER SCRIPTS ARE DONE
-shutil.move(tempfile.name, 'Patient Data.csv')
+shutil.move(tempfile.name, '../../uploads/Patient Data.csv')

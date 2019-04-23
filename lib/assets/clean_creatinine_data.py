@@ -3,7 +3,7 @@ import shutil
 import csv
 import re
 
-filename = 'Patient Data.csv'
+filename = '../../uploads/Patient Data.csv'
 tempfile = NamedTemporaryFile(delete=False)
 
 #Global variables
