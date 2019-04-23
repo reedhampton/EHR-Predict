@@ -58,29 +58,42 @@ class HomeController < ApplicationController
   def create
     session[:id] = 0
     flash.clear
-    #Uploads the CSV into the /uploads directory
-    uploaded_io = params[:user_input][:data]
     
-    # Validate the file format, redirect if not a CSV
-    if uploaded_io.content_type != "application/octet-stream"
-      flash[:alert] = "Incorrect File Type"
+    if !params.has_key? (:user_input)
+      flash[:alert] = "Please Input a CSV File"
       redirect_to '/analysis'
-    #Save the file and move on
     else
+      #Uploads the CSV into the /uploads directory
+      uploaded_io = params[:user_input][:data]
+      
+      # Validate the file format, redirect if not a CSV
+      if uploaded_io.content_type != "application/octet-stream"
+        flash[:alert] = "Incorrect File Type"
+        redirect_to '/analysis'
+      end
+      
+      #Save the file and move on
       File.open(Rails.root.join('uploads', 'Patient Data.csv'), 'wb') do |file|
         file.write(uploaded_io.read)
+    
+        #Run our cleaning scripts on the file
+        @python_clean_data = "python lib/assets/clean_all_data.py";
+        @python_return = `#{@python_clean_data}`;
+    
+        #Call the Fancy Python Script
+        
+        
+        #Get the returns from the Fancy python Script
+        #Parse those returns
+        #Put them in sessions
+        
+        #Delete teh CSV
+        
+        redirect_to '/results'
       end
-  
-      #Call the Fancy Python Script
-      #Get the returns from the Fancy python Script
-      #Parse those returns
-      #Put them in sessions
-      
-      #Delete teh CSV
-      
-      redirect_to '/results'
     end
   end
+
   
   def round_to_next_5(n)
       if n % 5 == 0
@@ -108,7 +121,3 @@ class HomeController < ApplicationController
     
   end
 end
-
-
-
-
