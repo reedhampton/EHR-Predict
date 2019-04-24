@@ -37,6 +37,7 @@ class HomeController < ApplicationController
     
     @patient_risk_str = @patient_risk.to_s + '%'
     @patient_ID = ((table['subject_id']).first).to_s
+    @patient_DOB = ((table['dob']).first).to_s
     @patient_arrive_time = ((table['admittime']).first).to_s
     @patient_ICU_time = ((table['intime']).first).to_s
     @patient_gender = ((table['gender']).first).to_s
