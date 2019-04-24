@@ -2,8 +2,10 @@ from tempfile import NamedTemporaryFile
 import shutil
 import csv
 import re
+import os
 
-filename = '/home/ec2-user/environment/EHR-Predict/uploads/Patient Data.csv'
+dirpath = os.getcwd()
+filename = dirpath + '/uploads/Patient Data.csv'
 tempfile = NamedTemporaryFile(delete=False)
 
 #Global variables

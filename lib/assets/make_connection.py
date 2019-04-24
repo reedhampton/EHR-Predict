@@ -1,7 +1,8 @@
 from oauth2client.client import GoogleCredentials
 import googleapiclient.discovery
 import pandas as pd
-
+import os
+dirpath = os.getcwd()
 '''
     The initial iteration issues:
         Encoding Categorical variables alters the "shape" of the
@@ -33,7 +34,7 @@ def place_holder_data_transformation(df):
 def call_cloud_eval_with_model(X):
     PROJECT_ID = "ehrkeras"
     MODEL_NAME = "mortality_placeholder"
-    CREDENTIALS_FILE = "credentials.json"
+    CREDENTIALS_FILE = "/home/ec2-user/environment/EHR-Predict/lib/assets/credentials.json"
 
     list1 = []
     for x in X:

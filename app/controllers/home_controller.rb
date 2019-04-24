@@ -70,11 +70,11 @@ class HomeController < ApplicationController
         file.write(uploaded_io.read)
     
         #Run our cleaning scripts on the file
-        @python_clean_data = "python /home/ec2-user/environment/EHR-Predict/lib/assets/clean_all_data.py";
+        @python_clean_data = "python lib/assets/clean_all_data.py";
         @python_return = `#{@python_clean_data}`;
         
-        @python_model_connect = "python /home/ec2-user/environment/EHR-Predict/lib/assets/make_connection.py";
-        @python_model_return = `#{@python_model_connect}`;
+        #@python_model_connect = "python lib/assets/make_connection.py";
+       # @python_model_return = `#{@python_model_connect}`;
     
         #Call the Fancy Python Script
         
