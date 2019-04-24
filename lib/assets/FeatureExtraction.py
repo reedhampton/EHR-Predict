@@ -2,6 +2,8 @@ import tsfresh.feature_extraction.feature_calculators as tffe
 import pandas as pd
 import numpy as np
 from datetime import datetime
+import machineL as ML
+from sklearn.externals import joblib
 
 
 def isNaN(x):
@@ -111,6 +113,58 @@ def daily_summary(df):
     new_df = new_df.append(new_row, ignore_index=True)
     return new_df
 
+def single_day_summary(cleaned_file_name):
+    df = pd.read_csv(cleaned_file_name, nrows=20)
+    df = ML.add_age_column(df)
+    df = ML.add_isdead_column(df)
+    #print("completed calc age")
+    df = df.drop(['intime', 'expire_flag', 'hadm_id', 'admittime'], axis=1)
+    enc_df = pd.read_csv("enc_format.csv")
+    col_vals = enc_df.columns.values
+    size = len(df.index)
+    #print(enc_df.values)
+    ncol = len(enc_df.columns)
+    for index in range(size):
+        zero_row = np.zeros((1,ncol))
+        zero_df = pd.DataFrame(zero_row, columns=col_vals)
+        enc_df = enc_df.append(zero_df.iloc[0])
+    #    print("zero_df shape: ", zero_df.shape)
+    #    print("enc_df shape: ", enc_df.shape)
+
+    for index in range(size):
+        enc_df.iloc[index]['subject_id'] = df.iloc[index]['subject_id']
+        enc_df.iloc[index]['icustay_id'] = df.iloc[index]['icustay_id']
+        enc_df.iloc[index]['charttime'] = df.iloc[index]['charttime']
+        enc_df.iloc[index]['heart_rate'] = df.iloc[index]['heart_rate']
+        enc_df.iloc[index]['abp_systolic'] = df.iloc[index]['abp_systolic']
+        enc_df.iloc[index]['gcs_total'] = df.iloc[index]['gcs_total']
+        enc_df.iloc[index]['platelets'] = df.iloc[index]['platelets']
+        enc_df.iloc[index]['creatinine'] = df.iloc[index]['creatinine']
+        enc_df.iloc[index]['weight'] = df.iloc[index]['weight']
+        enc_df.iloc[index]['category_' + str(df.iloc[index]['icd9_code'])] = 1
+        enc_df.iloc[index]['category_' + str(df.iloc[index]['gender'])] = 1
+        enc_df.iloc[index]['category_' + str(df.iloc[index]['ethnicity'])] = 1
+        enc_df.iloc[index]['category_' + str(df.iloc[index]['heart_rhythm'])] = 1
+        enc_df.iloc[index]['is_dead_in_n_hours'] = df.iloc[index]['is_dead_in_n_hours']
+
+    #for index in range(size):
+        #print(enc_df.iloc[index].values)
+
+    #print("shape of df: ", df.shape, ", shape of enc: ", enc_df.shape)
+    #for index in range(len(enc_df.columns)):
+    #    print(enc_df.iloc[0].iloc[index])
+    return enc_df
+
+
+def file_to_features(cleaned_file_name):
+    #this is the function to get the final evaluation data the data must be imputed at
+    #this point
+    df = single_day_summary(cleaned_file_name)
+    df = get_feature_date(df)
+    df = ML.row_correction(df)
+    feature_scaler = joblib.load("feature_scaler.save")
+    test_set = feature_scaler.transform(df.values)
+    return test_set
 
 def main():
     print("begin")
