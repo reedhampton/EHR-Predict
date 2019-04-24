@@ -31,21 +31,28 @@ class HomeController < ApplicationController
     
     @Creatinine_series_data = [time, cr].transpose
     
-    @patient_risk = 90
-    @model1_risk = 0
-    @model2_risk = 0
-    @model2_risk = 0
-    @model2_risk = 0
+    # data fill for patient and model info
     
-    @mdoel_variable1 = 'Heart Rate'
-    @mdoel_variable2 = 'SpO2'
+    @patient_risk = 90 # THIS NEEDS TO BE FILLED BY RETURN VALUE OF MODEL
+    
+    @patient_risk_str = @patient_risk.to_s + '%'
+    @patient_ID = ((table['subject_id']).first).to_s
+    @patient_arrive_time = ((table['admittime']).first).to_s
+    @patient_ICU_time = ((table['intime']).first).to_s
+    @patient_gender = ((table['gender']).first).to_s
+    @patient_ethnicity = ((table['ethnicity']).first).to_s
+    
+    @model_params = '' # THIS NEEDS TO BE FILLED BY RETURN VALUE OF MODEL
+    @model_MSE = '' # THIS NEEDS TO BE FILLED BY RETURN VALUE OF MODEL
+    @model_F1 = '' # THIS NEEDS TO BE FILLED BY RETURN VALUE OF MODEL
+    @model_AUC = '' # THIS NEEDS TO BE FILLED BY RETURN VALUE OF MODEL
     
     @image_patient_risk = round_to_next_5(@patient_risk)
     @image_path = '/assets/risk_' + @image_patient_risk.to_s + '.jpg'
     
-    @doctor_notes = "Doctor text"
-    @event_notes = "These are the event notes."
-    @discharge_notes = "These are the discharge notes."
+    @doctor_notes = "These are the doctor notes." # Fill from session variable
+    @event_notes = "These are the event notes." # Fill from session variable
+    @discharge_notes = "These are the discharge notes." # Fill from session variable
   end
   
   def create
@@ -72,18 +79,14 @@ class HomeController < ApplicationController
         #Run our cleaning scripts on the file
         @python_clean_data = "python lib/assets/clean_all_data.py";
         @python_return = `#{@python_clean_data}`;
-        
-        #@python_model_connect = "python lib/assets/make_connection.py";
-       # @python_model_return = `#{@python_model_connect}`;
-    
+         
         #Call the Fancy Python Script
-        
-        
+        @python_model_connect = "python lib/assets/make_connection.py";
+        @python_model_return = `#{@python_model_connect}`;
+
         #Get the returns from the Fancy python Script
         #Parse those returns
         #Put them in sessions
-        
-        #Delete teh CSV
         
         redirect_to '/results'
       end

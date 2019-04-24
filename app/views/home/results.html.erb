@@ -3,9 +3,63 @@
 <div class="row">
     <div class="col-md-5">
         <div class="row"> <div class="col-md-1"></div>
-            <div class="col-md-4"><img src = <%= @image_path %> width = "55%" height = "100%"></div>
-            <div class="col-md-5">
-               <p> <br> <br> <br> <br>Patient Risk: <%= @patient_risk %> <br>Model 1 Risk: <%= @model1_risk %><br>Model 2 Risk: <%= @model2_risk %><br>Model 3 Risk: <%= @model3_risk %><br> Model 4 Risk: <%= @model4_risk %> <br> INFO TEXT INFO TEXT INFO TEXT <br> INFO TEXT INFO TEXT INFO TEXT <br> INFO TEXT INFO TEXT INFO TEXT</p>
+            <div class="col-md-4"><img src = <%= @image_path %> width = "80%" height = "100%"></div>
+            <div class="col-md-7">
+                <!-- accordian start -->
+                <div id="accordion">
+                  <div class="card">
+                    <div class="card-header" id="headingOne">
+                      <h6 class="mb-0">
+                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Predictive Analysis
+                        </button>
+                      </h6>
+                    </div>
+                
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                      <div class="card-body">
+                        <b>Risk of Death Within 24 Hours: </b><h3><font color="red"><%= @patient_risk_str %> </font></h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header" id="headingTwo">
+                      <h6 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                          Patient and Model Details
+                        </button>
+                      </h6>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                        
+                      <!-- card start -->
+                      <div class="card-body">
+                        <b>Patient ID: </b><%= @patient_ID %> 
+                        <br>
+                        <b>Arrived at Hospital: </b><%= @patient_arrive_time %> 
+                        <br>
+                        <b>Arrived in ICU: </b><%= @patient_ICU_time %> 
+                        <br>
+                        <b>Gender: </b><%= @patient_gender %>
+                        <br>
+                        <b>Ethnicity: </b><%= @patient_ethnicity %>
+                      </div>
+                      <div class="card-footer">
+                        <b>Model Paramaters: </b><%= @model_params %> 
+                        <br>
+                        <b>MSE: </b><%= @model_MSE %> 
+                        <br>
+                        <b>F1-Score: </b><%= @model_F1 %> 
+                        <br>
+                        <b>ROC: </b><%= @model_AUC %> 
+                      </div>
+                      <!-- card end -->
+                      
+                    </div>
+                  </div>
+                </div> 
+                <!-- accordian end -->
+                
             </div>
         </div>
     </div>
