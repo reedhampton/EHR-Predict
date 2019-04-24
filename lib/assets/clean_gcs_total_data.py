@@ -2,7 +2,7 @@ from tempfile import NamedTemporaryFile
 import shutil
 import csv
 
-filename = '../../uploads/Patient Data.csv'
+filename = '/home/ec2-user/environment/EHR-Predict/uploads/Patient Data.csv'
 tempfile = NamedTemporaryFile(delete=False)
 
 with open(filename, 'rb') as csvFile, tempfile:
@@ -42,4 +42,4 @@ with open(filename, 'rb') as csvFile, tempfile:
         writer.writerow(row)
 
 #Write to our updated file CHANGE TO 'filename' WHEN OTHER SCRIPTS ARE DONE
-shutil.move(tempfile.name, '../../uploads/Patient Data.csv')
+shutil.move(tempfile.name, '/home/ec2-user/environment/EHR-Predict/uploads/Patient Data.csv')

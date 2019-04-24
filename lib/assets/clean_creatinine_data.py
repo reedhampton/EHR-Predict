@@ -3,7 +3,7 @@ import shutil
 import csv
 import re
 
-filename = '../../uploads/Patient Data.csv'
+filename = '/home/ec2-user/environment/EHR-Predict/uploads/Patient Data.csv'
 tempfile = NamedTemporaryFile(delete=False)
 
 #Global variables

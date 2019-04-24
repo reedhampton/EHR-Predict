@@ -2,7 +2,7 @@ from tempfile import NamedTemporaryFile
 import shutil
 import csv
 
-filename = '../../uploads/Patient Data.csv'
+filename = '/home/ec2-user/environment/EHR-Predict/uploads/Patient Data.csv'
 tempfile = NamedTemporaryFile(delete=False)
 
 with open(filename, 'rt') as csvFile, tempfile:
@@ -69,4 +69,4 @@ with open(filename, 'rt') as csvFile, tempfile:
 		bp_value_first = bp_value_second
 		after_first_iteration = True
 #Write to our updated file CHANGE TO 'filename' WHEN OTHER SCRIPTS ARE DONE
-shutil.move(tempfile.name, '../../uploads/Patient Data.csv')
+shutil.move(tempfile.name, '/home/ec2-user/environment/EHR-Predict/uploads/Patient Data.csv')
