@@ -1,40 +1,12 @@
 from oauth2client.client import GoogleCredentials
 import googleapiclient.discovery
 import pandas as pd
-import os
-dirpath = os.getcwd()
-'''
-    The initial iteration issues:
-        Encoding Categorical variables alters the "shape" of the
-        dataframe drastically:
-        let say you have dataframe A with categorical variable var1:
-         index | var1 |                                     index | a | b
-        -------------------- The encoding will change it to -----------------------
-        1      |   a  |                                         1 | 1 | 0
-        2      |   b  |                                         2 | 0 | 1
-        
-        So Until I perform the final clean on the master dataset, which will likely take several hours the input vector 
-        for the current iteration will be very different from the finalized version: 
-        However the input from the web-front end will not change: a csv file containing the hourly recorded measured
-        vitals of the  individual. As such is the the case this will connect only one dummy variable, the functions 
-        That needs to be changed are the ones pertaining to data transformation and not the ones that actually can a 
-        model.
-        
-        Also the prediction will obviously be meaningly since the data is not scaled but worry not sklearn lets
-        you save scaling factors.
-        
-'''
+import FeatureExtraction as FE
 
-def place_holder_data_transformation(df):
-    df = df.drop(columns=['subject_id', 'hadm_id', 'icustay_id', 'intime', 'icd9_code', 'gender', 'ethnicity',
-                          'dob', 'admittime', 'dod', 'expire_flag', 'charttime', 'heart_rhythm'])
-    df = df.mean(axis = 0)
-    return df
 
-def call_cloud_eval_with_model(X):
+def call_cloud_eval_with_model(X, MODEL_NAME):
     PROJECT_ID = "ehrkeras"
-    MODEL_NAME = "mortality_placeholder"
-    CREDENTIALS_FILE = dirpath + '/lib/assets/credentials.json'
+    CREDENTIALS_FILE = "credentials.json"
 
     list1 = []
     for x in X:
@@ -64,13 +36,29 @@ def call_cloud_eval_with_model(X):
 
     return results
 
-def main():
-    X = pd.read_csv(dirpath + '/uploads/Patient Data.csv')
 
-    X = (place_holder_data_transformation(X)).values
-    results = call_cloud_eval_with_model(X)
-    print("shape: ",X.shape)
-    return results
+def eval(filename):
+    test_set = FE.file_to_features(filename)
+    test_set = test_set[0]
+    true_val = test_set[185]
+    test_set = test_set[0:-1]
+    print("true value is: ", true_val)
+    print("test size is: ", len(test_set))
+    MODEL_NAME_DNN = "dnnMortality"
+    MODEL_NAME_L1NN = "l1nnMortality"
+    MODEL_NAME_L2NN = "l2nnMortality"
+    L1 = call_cloud_eval_with_model(test_set, MODEL_NAME_L1NN) #Worst
+    L2 = call_cloud_eval_with_model(test_set, MODEL_NAME_L2NN) #Good
+    DNN = call_cloud_eval_with_model(test_set, MODEL_NAME_DNN) #Best
+    auroc_scores = pd.read_csv("auc.csv")                               #AUC scores are precomputed
+
+    return "The True value of the test case is: " + str(true_val) + ", \nNeuralNet with Dropping layers predicts: "\
+           + str(DNN) + ", \nNeuralNet with L2 regression predicts: " + str(L2) + ", \nand NeuralNet with L1 regression predicts:" + str(L1)
+
+def main():
+    string1 = eval("testInitialTable.csv")
+    print(string1)
+    return
 
 if __name__ == "__main__":
     main()
