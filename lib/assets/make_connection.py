@@ -34,7 +34,7 @@ def place_holder_data_transformation(df):
 def call_cloud_eval_with_model(X):
     PROJECT_ID = "ehrkeras"
     MODEL_NAME = "mortality_placeholder"
-    CREDENTIALS_FILE = "/home/ec2-user/environment/EHR-Predict/lib/assets/credentials.json"
+    CREDENTIALS_FILE = dirpath + '/lib/assets/credentials.json'
 
     list1 = []
     for x in X:
@@ -65,7 +65,7 @@ def call_cloud_eval_with_model(X):
     return results
 
 def main():
-    X = pd.read_csv("/home/ec2-user/environment/EHR-Predict/uploads/Patient Data.csv")
+    X = pd.read_csv(dirpath + '/uploads/Patient Data.csv')
 
     X = (place_holder_data_transformation(X)).values
     results = call_cloud_eval_with_model(X)
