@@ -1,7 +1,17 @@
 <%= form_for :user_input, :url => url_for(:controller => 'home', :action => 'create') do |form| %>
   <div class='mx-auto text-center'>
-    <%= form.file_field :data, :class=> 'btn btn-primary'%>
-    <br>
-    <%= form.submit "Generate Analysis", :class=> 'btn btn-success mt-4' %>
+    
+    <div class="image-upload">
+     <label for="file-input">
+       <%= image_tag("upload 2.png", :class => 'mx-auto', :style => "width:10%;height:10%")%>
+       <h5 class="d-inline-block ml-2" style="color:#08748c;">Upload</h5>
+     </label>
+  
+     <%= form.file_field :data, id:"file-input"%>
+    </div>
+    
+    <hr>
+    <%= form.submit "Generate Analysis", :class=> 'btn btn-success mt-1' %>
+    <%= link_to 'Blank CSV', {:controller => :home, :action => :download_blank_csv}, {class: 'btn btn-success mt-1'} %>
   </div>
 <% end  %>

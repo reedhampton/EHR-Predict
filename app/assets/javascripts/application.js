@@ -18,3 +18,48 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
+
+
+function ShowHide(evt, ID)
+{
+    
+    var i, graphs, toggles;
+    
+    // Get all elements and hide them all
+    graphs = document.getElementsByClassName("col-md-12");
+    for (i = 0; i < graphs.length; i++) 
+    {
+        graphs[i].style.display = "none";
+    }
+    
+    toggles = document.getElementsByClassName("btn btn-primary");
+    for (i = 0; i < toggles.length; i++) 
+    {
+        toggles[i].className = toggles[i].className.replace(" active", "");
+    }
+    
+    document.getElementById(ID).style.display = "block";
+    evt.currentTarget.className += " active";
+}  
+    
+    
+function OpenNotes(evt, ID) 
+{
+    
+    var i, tabcontent, tablinks;
+    
+    tabcontent = document.getElementsByClassName("tab-pane");
+    for (i = 0; i < tabcontent.length; i++)
+    {
+        tabcontent[i].style.display = "none";
+    }
+    
+    tablinks = document.getElementsByClassName("btn btn-primary");
+    for (i = 0; i < tablinks.length; i++)
+    {   
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    
+    document.getElementById(ID).style.display = "block";
+    evt.currentTarget.className += " active";
+}

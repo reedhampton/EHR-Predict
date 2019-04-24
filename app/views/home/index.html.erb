@@ -1,12 +1,67 @@
-<div class='text-center mt-5'>
-    <h1>EHR Predict</h1>
-    <h5 class='text-muted'>Welcome to EHR Predict, where we predict how likely it is you will kick the bucket in the next 24-Hours</h5>
-</div>
 
-<div class='text-center'>
-<%= image_tag("EHR_predict_logo.png", :class => 'mx-auto w-25 h-25')%>
-</div>
-
-<div class='text-center mt-5'>
-    <%= link_to 'Predictive Analysis', {:controller => :home, :action => :new}, {class: 'btn btn-success'} %>
+<div class="container" style="margin-top:2%;">
+  <div class="row">
+    <div class="col">
+      <div class='text-center'>
+        <%= image_tag("EHR-Predict_Logo 2.png", :class => 'mx-auto w-75 h-75')%>
+      </div>
+    </div>
+    
+    <div class="col">
+      <div class='text-center mt-5'>
+        <h1>EHR Predict</h1>
+        <h5 class='text-muted'>The premiere mortality predictive tool at Texas A&M University</h5>
+      </div>
+      
+      <div class='text-center mt-5'>
+        <div class='card'>
+            <div class='card-header text-center' style="background:#2b2a2d; color:#fff">
+                <h5>Please upload a CSV in the standardized file format</h5>
+            </div>
+            <div class='card-body'>
+                <%= render 'form' %>
+            </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  
+  <div class="row">
+    <div class="col">
+      <div class="progress">
+        <div class="progress-bar bg-primary" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      
+      <div class="mx-auto mt-2" style="width:85%">
+        <h5 class='text-muted'>EHR Predict is a mortality predictive tool which utilizes Machine Learning to predict the likelihood of a 
+        given patient dying within a 24 hour period. The system takes in a timeseries data sheet and uses, primarlily, the following variables
+        to make its prediction:</h5>
+        
+        <hr>
+        
+        <div class="row mt-1">
+          <div class="col">
+            <h5 class="text-muted">
+              <ul>
+                <li>Demographic Information</li>
+                <li>Heart Rate</li>
+                <li>Heart Rhythm</li>
+                <li>Blood Pressure</li>
+                <li>GCS Total</li>
+                <li>Platelet Count</li>
+                <li>Creatinine</li>
+              </ul>
+            </h5>
+          </div>
+          <div class="col">
+            <h5 class="text-muted">The EHR Predict system utilizes a custom model generated from cleaed data pulled from the 
+            <a href="https://mimic.physionet.org/" target="_blank">MIMIC Critical Care Database</a>. EHR Predict has been found to have a 
+            <strong>ROC score of 0.86</strong> which is significantly higher than the common metric for success of 0.75.</h5>
+          </div>
+          
+      </div>
+    </div>
+    
+  </div>
 </div>

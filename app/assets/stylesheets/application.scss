@@ -11,4 +11,90 @@
  * It is generally better to create a new file per style scope.
  *
  */
+
+$primary: #08748c;
+$danger: #ce4e4e;
+$info: 	#ecd36b;
+$success: #5cb85c;
+$link: #ecd36b;
+
 @import 'bootstrap';
+
+html, body {
+    background: #f9ebd7;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.wrapper {
+    display: flex;
+    align-items: stretch;
+}
+
+
+#sidebar {
+    /* don't forget to add all the previously mentioned styles here too */
+    background: #08748c;
+    color: #fff;
+    transition: all 0.3s;
+    min-width: 13%;
+    max-width: 13%;
+    min-height: 100vh;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #2b2a2d	;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #47748b;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    color: #fff;
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+
+#sidebar ul li a:hover {
+    color: #fff;
+    background: #ce4e4e;
+    text-decoration: none;
+}
+
+.bg-primary {
+    background: #08748c;
+}
+
+.alert {
+  position: absolute;
+  top: 0;
+  z-index: 999;
+  width: 87%;
+  height: 5%;
+  margin-left: 13%;
+}
+
+.image-upload > input
+{
+   display: none;
+}
+.image-upload > label{
+  cursor:pointer;
+}
+
+.tab-content .card-body {
+    background:	#2b2a2d;
+    color: #f9ebd7
+}

@@ -5,7 +5,7 @@ require 'yaml'
 
 class HomeController < ApplicationController
   def index
-    flash.clear
+  flash[:success] = nil
   end
   
   def results

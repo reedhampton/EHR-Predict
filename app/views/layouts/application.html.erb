@@ -10,27 +10,33 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+    
     <%= csrf_meta_tags %>
   </head>
 
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <a class="navbar-brand text-white" disabled>EHR Predict</a>
-      <div class="collapse navbar-collapse">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="/home">Home</a>
+  <body class="wrapper">
+    <!-- Sidebar -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>EHR Predict</h3>
+        </div>
+
+        <ul class="list-unstyled components mt-0 pt-0">
+          <li>
+            <a href="/analysis">Analysis</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/analysis">Analysis</a>
+          <li>
+            <a href="/guidelines">Guidelines</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/results">Results (TEMP)</a>
+          <li>
+            <a href="/results">Results (TEMP)</a>
           </li>
         </ul>
-      </div>
+        
+        <%= image_tag("EHR-Predict_Logo 2.png", :class => 'fixed-bottom ml-3', :style => "height:23%;")%>
     </nav>
-    
+
     <% if flash[:notice] %>
       <div class="alert alert-info text-center" role="alert">
         <%= flash[:notice] %>
