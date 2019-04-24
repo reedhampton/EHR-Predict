@@ -1,4 +1,6 @@
 require 'csv'
+require 'yaml'
+
 
 
 class HomeController < ApplicationController
@@ -8,8 +10,8 @@ class HomeController < ApplicationController
   
   def results
     flash.clear
-    flash[:success] = "Successful Precitive Analysis"
-    
+    flash[:success] = "Successful Predictive Analysis"
+
     table = CSV.read("#{Rails.root}/uploads/Patient Data.csv", headers: true)
     time = table['charttime']
     hr = table['heart_rate']
@@ -39,6 +41,7 @@ class HomeController < ApplicationController
     @patient_ID = ((table['subject_id']).first).to_s
     @patient_DOB = ((table['dob']).first).to_s
     @patient_arrive_time = ((table['admittime']).first).to_s
+    @patient_age = @patient_arrive_time.match(/.*\/.*\/(\d*)/).captures.to_s[2..5].to_i -  @patient_DOB.match(/.*\/.*\/(\d*)/).captures.to_s[2..5].to_i
     @patient_ICU_time = ((table['intime']).first).to_s
     @patient_gender = ((table['gender']).first).to_s
     @patient_ethnicity = ((table['ethnicity']).first).to_s
@@ -51,9 +54,9 @@ class HomeController < ApplicationController
     @image_patient_risk = round_to_next_5(@patient_risk)
     @image_path = '/assets/risk_' + @image_patient_risk.to_s + '.jpg'
     
-    @doctor_notes = "These are the doctor notes." # Fill from session variable
-    @event_notes = "These are the event notes." # Fill from session variable
-    @discharge_notes = "These are the discharge notes." # Fill from session variable
+    @doctor_notes = session[:doctor_notes];
+    @event_notes = session[:event_notes];
+    @discharge_notes = session[:discharge_notes];
   end
   
   def create
@@ -76,7 +79,15 @@ class HomeController < ApplicationController
       #Save the file and move on
       File.open(Rails.root.join('uploads', 'Patient Data.csv'), 'wb') do |file|
         file.write(uploaded_io.read)
-    
+        
+        #Go and save our notes into the session variable
+        @python_notes = `python lib/assets/return_notes.py`;
+        @python_notes = YAML.load(@python_notes)
+
+        session[:doctor_notes] =  @python_notes[0];
+        session[:event_notes] =  @python_notes[1];
+        session[:discharge_notes] =  @python_notes[2];
+
         #Run our cleaning scripts on the file
         @python_clean_data = "python lib/assets/clean_all_data.py";
         @python_return = `#{@python_clean_data}`;
