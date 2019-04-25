@@ -56,8 +56,7 @@ def eval(filename):
     DNN = call_cloud_eval_with_model(test_set, MODEL_NAME_DNN) #Best
     auroc_scores = pd.read_csv(dirpath + "/lib/assets/auc.csv")                               #AUC scores are precomputed
 
-    return "The True value of the test case is: " + str(true_val) + ", \nNeuralNet with Dropping layers predicts: "\
-           + str(DNN) + ", \nNeuralNet with L2 regression predicts: " + str(L2) + ", \nand NeuralNet with L1 regression predicts:" + str(L1)
+    return str(true_val) + "," + str(DNN) + "," + str(L2) + "," + str(L1) + "," + str(auroc_scores)
 
 def main():
     string1 = eval(filename)
