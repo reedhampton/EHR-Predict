@@ -10,7 +10,7 @@ filename = dirpath + '/uploads/Patient Data.csv'
 
 def call_cloud_eval_with_model(X, MODEL_NAME):
     PROJECT_ID = "ehrkeras"
-    CREDENTIALS_FILE = "credentials.json"
+    CREDENTIALS_FILE = dirpath + "/lib/assets/credentials.json"
 
     list1 = []
     for x in X:
