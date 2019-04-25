@@ -4,6 +4,9 @@ import numpy as np
 from datetime import datetime
 import machineL as ML
 from sklearn.externals import joblib
+import os
+
+dirpath = os.getcwd()
 
 
 def isNaN(x):
@@ -119,7 +122,7 @@ def single_day_summary(cleaned_file_name):
     df = ML.add_isdead_column(df)
     #print("completed calc age")
     df = df.drop(['intime', 'expire_flag', 'hadm_id', 'admittime'], axis=1)
-    enc_df = pd.read_csv("enc_format.csv")
+    enc_df = pd.read_csv(dirpath + "/lib/assets/enc_format.csv")
     col_vals = enc_df.columns.values
     size = len(df.index)
     #print(enc_df.values)
@@ -162,7 +165,7 @@ def file_to_features(cleaned_file_name):
     df = single_day_summary(cleaned_file_name)
     df = get_feature_date(df)
     df = ML.row_correction(df)
-    feature_scaler = joblib.load("feature_scaler.save")
+    feature_scaler = joblib.load(dirpath + "/lib/assets/feature_scaler.save")
     test_set = feature_scaler.transform(df.values)
     return test_set
 

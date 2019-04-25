@@ -2,7 +2,11 @@ from oauth2client.client import GoogleCredentials
 import googleapiclient.discovery
 import pandas as pd
 import FeatureExtraction as FE
+import os
 
+dirpath = os.getcwd()
+
+filename = dirpath + '/uploads/Patient Data.csv'
 
 def call_cloud_eval_with_model(X, MODEL_NAME):
     PROJECT_ID = "ehrkeras"
@@ -56,7 +60,7 @@ def eval(filename):
            + str(DNN) + ", \nNeuralNet with L2 regression predicts: " + str(L2) + ", \nand NeuralNet with L1 regression predicts:" + str(L1)
 
 def main():
-    string1 = eval("testInitialTable.csv")
+    string1 = eval(filename)
     print(string1)
     return
 

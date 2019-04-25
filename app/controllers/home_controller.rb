@@ -41,12 +41,12 @@ class HomeController < ApplicationController
     @patient_ID = ((table['subject_id']).first).to_s
     @patient_DOB = ((table['dob']).first).to_s
     @patient_arrive_time = ((table['admittime']).first).to_s
-    @patient_age = @patient_arrive_time.match(/.*\/.*\/(\d*)/).captures.to_s[2..5].to_i -  @patient_DOB.match(/.*\/.*\/(\d*)/).captures.to_s[2..5].to_i
+    @patient_age = 10# @patient_arrive_time.match(/.*\/.*\/(\d*)/).captures.to_s[2..5].to_i -  @patient_DOB.match(/.*\/.*\/(\d*)/).captures.to_s[2..5].to_i
     @patient_ICU_time = ((table['intime']).first).to_s
     @patient_gender = ((table['gender']).first).to_s
     @patient_ethnicity = ((table['ethnicity']).first).to_s
     
-    @model_params = '' # THIS NEEDS TO BE FILLED BY RETURN VALUE OF MODEL
+    @model_params = @python_model_return.to_s # THIS NEEDS TO BE FILLED BY RETURN VALUE OF MODEL
     @model_MSE = '' # THIS NEEDS TO BE FILLED BY RETURN VALUE OF MODEL
     @model_F1 = '' # THIS NEEDS TO BE FILLED BY RETURN VALUE OF MODEL
     @model_AUC = '' # THIS NEEDS TO BE FILLED BY RETURN VALUE OF MODEL
@@ -93,7 +93,7 @@ class HomeController < ApplicationController
         @python_return = `#{@python_clean_data}`;
          
         #Call the Fancy Python Script
-        @python_model_connect = "python lib/assets/make_connection.py";
+        @python_model_connect = "python3 lib/assets/make_connection.py";
         @python_model_return = `#{@python_model_connect}`;
 
         #Get the returns from the Fancy python Script
