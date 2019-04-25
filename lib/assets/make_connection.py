@@ -36,7 +36,6 @@ def call_cloud_eval_with_model(X, MODEL_NAME):
 
     results = response['predictions']
 
-    print(results)
 
     return results
 
@@ -46,8 +45,7 @@ def eval(filename):
     test_set = test_set[0]
     true_val = test_set[185]
     test_set = test_set[0:-1]
-    print("true value is: ", true_val)
-    print("test size is: ", len(test_set))
+
     MODEL_NAME_DNN = "dnnMortality"
     MODEL_NAME_L1NN = "l1nnMortality"
     MODEL_NAME_L2NN = "l2nnMortality"
@@ -55,8 +53,31 @@ def eval(filename):
     L2 = call_cloud_eval_with_model(test_set, MODEL_NAME_L2NN) #Good
     DNN = call_cloud_eval_with_model(test_set, MODEL_NAME_DNN) #Best
     auroc_scores = pd.read_csv(dirpath + "/lib/assets/auc.csv")                               #AUC scores are precomputed
-
-    return str(true_val) + "," + str(DNN) + "," + str(L2) + "," + str(L1) + "," + str(auroc_scores)
+    
+    #DNN: [{'is_dead': [0.12375179678201675]}]
+    
+    DNN_AUROC = auroc_scores['drop_auc'][0]
+    L1_AUROC = auroc_scores['l1_auc'][0]
+    L2_AUROC = auroc_scores['l2_auc'][0]
+    
+    DNNlist = DNN[0]
+    for key in DNNlist.keys():
+        DNN_Key = key;
+        
+    L1list = L1[0]
+    for key in L1list.keys():
+        L1_Key = key;
+        
+    L2list = L2[0]
+    for key in L2list.keys():
+        L2_Key = key;
+        
+    DNN_return = DNNlist[DNN_Key]
+    L1_return = L1list[L1_Key]
+    L2_return = L2list[L2_Key]
+    return_list = [str(DNN_return)[1:-1], str(L1_return)[1:-1], str(L2_return)[1:-1], DNN_AUROC, L1_AUROC, L2_AUROC]
+        
+    return return_list
 
 def main():
     string1 = eval(filename)

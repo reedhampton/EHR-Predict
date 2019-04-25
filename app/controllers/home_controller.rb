@@ -35,7 +35,7 @@ class HomeController < ApplicationController
     
     # data fill for patient and model info
     
-    @patient_risk = 90 # THIS NEEDS TO BE FILLED BY RETURN VALUE OF MODEL
+    @patient_risk = session[:L2_score].to_i
     
     @patient_risk_str = @patient_risk.to_s + '%'
     @patient_ID = ((table['subject_id']).first).to_s
@@ -46,10 +46,12 @@ class HomeController < ApplicationController
     @patient_gender = ((table['gender']).first).to_s
     @patient_ethnicity = ((table['ethnicity']).first).to_s
     
-    @model_params = @python_model_return.to_s
-    @model_MSE = '' # THIS NEEDS TO BE FILLED BY RETURN VALUE OF MODEL
-    @model_F1 = '' # THIS NEEDS TO BE FILLED BY RETURN VALUE OF MODEL
-    @model_AUC = '' # THIS NEEDS TO BE FILLED BY RETURN VALUE OF MODEL
+    @model_DNN_score = session[:DNN_score]
+    @model_DNN_auroc = session[:DNN_auroc]
+    @model_L1_score = session[:L1_score]
+    @model_L1_auroc = session[:L1_auroc]
+    @model_L2_score = session[:L2_score]
+    @model_L2_auroc = session[:L2_auroc]
     
     @image_patient_risk = round_to_next_5(@patient_risk)
     @image_path = '/assets/risk_' + @image_patient_risk.to_s + '.jpg'
@@ -94,13 +96,14 @@ class HomeController < ApplicationController
          
         #Call the Fancy Python Script
         @python_model_connect = "python3 lib/assets/make_connection.py";
-        @python_model_return = `#{@python_model_connect}`;
-        
-        puts @python_model_return;
+        @python_model_return = `#{@python_model_connect}`.split(',');
 
-        #Get the returns from the Fancy python Script
-        #Parse those returns
-        #Put them in sessions
+        session[:DNN_score] = ((@python_model_return[0].gsub("'", "").gsub("[", "")).to_f * 100).round(2)
+        session[:L1_score] = ((@python_model_return[1].gsub("'", "")).to_f * 100).round(2)
+        session[:L2_score] = ((@python_model_return[2].gsub("'", "")).to_f * 100).round(2)
+        session[:DNN_auroc] = @python_model_return[3].to_f.round(2)
+        session[:L1_auroc] = @python_model_return[4].to_f.round(2)
+        session[:L2_auroc] = @python_model_return[5].gsub("]", "").to_f.round(2)
         
         redirect_to '/results'
       end

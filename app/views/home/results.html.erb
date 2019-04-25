@@ -74,20 +74,28 @@
                       <div class="card-body">
                         <table class="table table-striped">
                           <tr>
-                            <td style="color:#ce4e4e">Model Parameters</td>
-                            <td><%=@model_params%></td>
+                            <td style="color:#ce4e4e">Dropped Neural Net Score</td>
+                            <td><%=@model_DNN_score%></td>
                           </tr>
                           <tr>
-                            <td style="color:#ce4e4e">MSE</td>
-                            <td><%=@model_MSE%></td>
+                            <td style="color:#ce4e4e">Dropped Neural Net AUROC</td>
+                            <td><%=@model_DNN_auroc%></td>
                           </tr>
                           <tr>
-                            <td style="color:#ce4e4e">F1 Score</td>
-                            <td><%=@model_F1%></td>
+                            <td style="color:#ce4e4e">Level 1 Neural Net Score</td>
+                            <td><%=@model_L1_score%></td>
                           </tr>
                           <tr>
-                            <td style="color:#ce4e4e">ROC Score</td>
-                            <td><%=@model_AUC%></td>
+                            <td style="color:#ce4e4e">Level 1 Neural Net AUROC</td>
+                            <td><%=@model_L1_auroc%></td>
+                          </tr>
+                          <tr>
+                            <td style="color:#ce4e4e">Level 2 Neural Net Score</td>
+                            <td><%=@model_L2_score%></td>
+                          </tr>
+                          <tr>
+                            <td style="color:#ce4e4e">Level 2 Neural Net AUROC</td>
+                            <td><%=@model_L2_auroc%></td>
                           </tr>
                         </table>
                       </div>
