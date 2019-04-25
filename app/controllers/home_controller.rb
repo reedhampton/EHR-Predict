@@ -46,7 +46,7 @@ class HomeController < ApplicationController
     @patient_gender = ((table['gender']).first).to_s
     @patient_ethnicity = ((table['ethnicity']).first).to_s
     
-    @model_params = @python_model_return.to_s # THIS NEEDS TO BE FILLED BY RETURN VALUE OF MODEL
+    @model_params = @python_model_return.to_s
     @model_MSE = '' # THIS NEEDS TO BE FILLED BY RETURN VALUE OF MODEL
     @model_F1 = '' # THIS NEEDS TO BE FILLED BY RETURN VALUE OF MODEL
     @model_AUC = '' # THIS NEEDS TO BE FILLED BY RETURN VALUE OF MODEL
@@ -95,6 +95,8 @@ class HomeController < ApplicationController
         #Call the Fancy Python Script
         @python_model_connect = "python3 lib/assets/make_connection.py";
         @python_model_return = `#{@python_model_connect}`;
+        
+        puts @python_model_return;
 
         #Get the returns from the Fancy python Script
         #Parse those returns
