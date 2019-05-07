@@ -41,7 +41,7 @@ class HomeController < ApplicationController
     @patient_ID = ((table['subject_id']).first).to_s
     @patient_DOB = ((table['dob']).first).to_s
     @patient_arrive_time = ((table['admittime']).first).to_s
-    @patient_age = 10# @patient_arrive_time.match(/.*\/.*\/(\d*)/).captures.to_s[2..5].to_i -  @patient_DOB.match(/.*\/.*\/(\d*)/).captures.to_s[2..5].to_i
+    @patient_age =  @patient_arrive_time.match(/.*\/.*\/(\d*)/).captures.to_s[2..5].to_i -  @patient_DOB.match(/.*\/.*\/(\d*)/).captures.to_s[2..5].to_i
     @patient_ICU_time = ((table['intime']).first).to_s
     @patient_gender = ((table['gender']).first).to_s
     @patient_ethnicity = ((table['ethnicity']).first).to_s
